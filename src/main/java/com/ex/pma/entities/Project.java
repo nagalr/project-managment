@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 // Defines that this is an entity, an Object from this class will convert to a record in a database
 // Each row in the database will have all the private fields of the Object
+// The Java JPA persistence api with hibernate will manage that
 @Entity
 public class Project {
 
