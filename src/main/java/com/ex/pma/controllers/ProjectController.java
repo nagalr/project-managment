@@ -9,6 +9,6 @@ public class ProjectController {
 
     @RequestMapping("/new")
     public String displayProjectForm() {
-
+        return "new-project";
     }
 }
