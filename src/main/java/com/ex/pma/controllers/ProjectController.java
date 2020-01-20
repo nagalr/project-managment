@@ -7,4 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/projects")
 public class ProjectController {
 
+    @RequestMapping("/new")
+    public String displayProjectForm() {
+
+    }
 }
