@@ -22,6 +22,6 @@ public class ProjectController {
     @PostMapping("/save")
     public String saveProjectForm(Project project, Model model) {
         // This method should handle saving to the database
-
+        return "";
     }
 }
