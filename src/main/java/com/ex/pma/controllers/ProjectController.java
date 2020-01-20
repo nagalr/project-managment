@@ -12,8 +12,8 @@ public class ProjectController {
     @RequestMapping("/new")
     public String displayProjectForm(Model model) {
 
-        Project aProject = new Project();
-        model.addAttribute("project", aProject);
+        Project aProject = new Project(); // Bind an empty Object to the form
+        model.addAttribute("project", aProject); // in the html form the Object name is "project"
         return "new-project";
     }
 }
