@@ -19,7 +19,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
             </li>
@@ -34,8 +34,8 @@
 </nav>
 
 <!--The Current Projects component-->
-<div th:fragment="CurrentProjects">
-    <br>
+<div class="m-5 pb-5" th:fragment="CurrentProjects">
+    <hr>
     <h4>Current Projects</h4>
     <hr>
     <table class="table table-bordered table-striped">
@@ -55,7 +55,8 @@
 </div>
 
 <!--The Current Employees component-->
-<div th:fragment="CurrentEmployees">
+<div class="m-5 pb-5" th:fragment="CurrentEmployees">
+    <hr>
     <h4>Current Employees</h4>
     <hr>
     <table class="table table-bordered table-striped">
