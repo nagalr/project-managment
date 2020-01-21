@@ -12,6 +12,11 @@
     <title>Employee</title>
 </head>
 <body>
+
+<!--using 'nav' here since it's declared like that in layouts.html-->
+<!--This line will invoke the navbar that declared in layouts.html-->
+<nav th:replace="layouts :: foo"></nav>
+
     <div class="container">
         <form action="/employees/save" th:object="${employee}" method="POST">
             <input type="text" placeholder="Employee First Name" th:field="${employee.firstName}">
