@@ -20,7 +20,7 @@ public class HomeController {
     @Autowired
     EmployeesRepository empRepo;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String displayHome (Model model) {
 
         // Querying the database for Projects
