@@ -35,14 +35,16 @@
 
 <!--The Current Projects component-->
 <div th:fragment="CurrentProjects">
+    <br>
     <h4>Current Projects</h4>
-    <table>
-        <thead>
+    <hr>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
         <tr>
             <th>Project Name</th>
             <th>Project Stage</th>
         </tr>
-        </thead>
+        </thead >
         <tbody>
         <tr th:each="aProject : ${projectsList}">
             <td th:text="${aProject.name}" />
@@ -55,8 +57,9 @@
 <!--The Current Employees component-->
 <div th:fragment="CurrentEmployees">
     <h4>Current Employees</h4>
-    <table>
-        <thead>
+    <hr>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
         <tr>
             <th>EmployeefirstName</th>
             <th>EmployeelastName</th>
