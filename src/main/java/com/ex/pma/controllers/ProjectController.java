@@ -16,6 +16,11 @@ public class ProjectController {
     @Autowired // Spring will create an Instance from this interface
     ProjectRepository proRepo; // we will use this to save our Project instance
 
+    @RequestMapping("")
+    public String showCurrentProjects() {
+        return "projects/CurrentProjects";
+    }
+
     @GetMapping("/new")
     public String displayProjectForm(Model model) {
 
