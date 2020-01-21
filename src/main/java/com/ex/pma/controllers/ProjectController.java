@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/projects")
 public class ProjectController {
@@ -17,7 +19,12 @@ public class ProjectController {
     ProjectRepository proRepo; // we will use this to save our Project instance
 
     @RequestMapping("")
-    public String showCurrentProjects() {
+    public String showCurrentProjects(Model model) {
+
+        // Querying the database for Projects and Employees
+        List<Project> projects = proRepo.findAll(); // return all the projects in the db
+
+        model.addAttribute("projectsList", projects);
         return "projects/CurrentProjects";
     }
 

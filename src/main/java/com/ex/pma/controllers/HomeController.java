@@ -25,11 +25,10 @@ public class HomeController {
     @GetMapping("")
     public String displayHome (Model model) {
 
-        // Querying the database for Projects
+        // Querying the database for Projects and Employees
         List<Project> projects = proRepo.findAll(); // return all the projects in the db
         List<Employee> employees = empRepo.findAll();
 
-        // Querying the database for Employees
         model.addAttribute("projectsList", projects);
         model.addAttribute("EmployeesList", employees);
 
