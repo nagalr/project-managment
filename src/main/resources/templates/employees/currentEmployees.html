@@ -12,8 +12,37 @@
 <!--This line will invoke the navbar that declared in layouts.html-->
 <nav th:replace="layouts :: foo"></nav>
 
+<div class="container">
+    <h3>Employees Directory</h3>
+    <hr>
+
+    <!--    Add new Employee Button-->
+    <a th:href="@{/employees/new}" class="btn btn-primary btn-sm mb-3">
+        Add Employee
+    </a>
+    <br><br>
+
+    <!--    A table for the existing projects-->
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Employee First Name</th>
+            <th>Employee Last Name</th>
+            <th>Employee Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aEmployee : ${EmployeesList}">
+            <td th:text="${aEmployee.firstName}" />
+            <td th:text="${aEmployee.lastName}" />
+            <td th:text="${aEmployee.email}" />
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 <!--Invoke the CurrentEmployees component from layouts.html-->
-<div th:replace="layouts :: CurrentEmployees"></div>
+<!--<div th:replace="layouts :: CurrentEmployees"></div>-->
 
 </body>
 </html>
