@@ -16,6 +16,11 @@ public class EmployeeController {
     @Autowired
     EmployeesRepository empRepo;
 
+//    @RequestMapping("/")
+//    public String showHomePage() {
+//
+//    }
+
     @GetMapping("/new")
     public String displayEmployeeForm(Model model) {
 
