@@ -26,7 +26,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public String createEmployeeForm(Employee employee, Model model) {
+    public String createEmployee(Employee employee, Model model) {
 
         empRepo.save(employee);
 

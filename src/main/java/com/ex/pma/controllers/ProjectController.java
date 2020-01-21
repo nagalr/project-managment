@@ -25,7 +25,7 @@ public class ProjectController {
     }
 
     @PostMapping("/save")
-    public String createProjectForm(Project project, Model model) {
+    public String createProject(Project project, Model model) {
         // This method should handle saving to the database
         proRepo.save(project);
 
