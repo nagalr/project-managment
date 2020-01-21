@@ -1,16 +1,14 @@
 package com.ex.pma.entities;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long employeeId;
+    private long EmployeeId;
 
     private String firstName;
     private String lastName;
@@ -27,11 +25,11 @@ public class Employee {
     }
 
     public long getEmployeeId() {
-        return employeeId;
+        return EmployeeId;
     }
 
     public void setEmployeeId(long employeeId) {
-        this.employeeId = employeeId;
+        EmployeeId = employeeId;
     }
 
     public String getFirstName() {
