@@ -11,7 +11,7 @@
 
 </head>
 
-<!--'foo' as a name here is only for practice purpose-->
+<!--'foo' as a name here is only for practice purpose, it is the navbar-->
 <nav th:fragment="foo" class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Project IO</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
                 <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Employees</a>
+                <a class="nav-link" href="../templates/main/home.html">Employees</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Projects</a>
@@ -32,5 +32,45 @@
         </ul>
     </div>
 </nav>
+
+<div th:fragment="CurrentProjects">
+    <h4>Current Projects</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Project Stage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aProject : ${projectsList}">
+            <td th:text="${aProject.name}" />
+            <td th:text="${aProject.stage}" />
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:fragment="CurrentEmployees">
+    <h4>Current Employees</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>EmployeefirstName</th>
+            <th>EmployeelastName</th>
+            <th>Employeeemail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aEmployee : ${EmployeesList}">
+            <td th:text="${aEmployee.firstName}" />
+            <td th:text="${aEmployee.lastName}" />
+            <td th:text="${aEmployee.email}" />
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
 
 </html>
