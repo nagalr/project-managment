@@ -21,7 +21,7 @@ public class ProjectController {
 
         Project aProject = new Project(); // Bind an empty Object to the form
         model.addAttribute("project", aProject); // in the html form the Object name is "project"
-        return "new-project";
+        return "projects/new-project";
     }
 
     @PostMapping("/save")

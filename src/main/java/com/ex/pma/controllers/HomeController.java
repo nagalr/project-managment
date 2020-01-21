@@ -31,6 +31,6 @@ public class HomeController {
         model.addAttribute("projectsList", projects);
         model.addAttribute("EmployeesList", employees);
 
-        return "home";
+        return "main/home";
     }
 }
