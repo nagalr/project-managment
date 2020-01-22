@@ -1,6 +1,8 @@
 package com.ex.pma.controllers;
 
+import com.ex.pma.dao.EmployeesRepository;
 import com.ex.pma.dao.ProjectRepository;
+import com.ex.pma.entities.Employee;
 import com.ex.pma.entities.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ public class ProjectController {
     @Autowired // Spring will create an Instance from this interface
     ProjectRepository proRepo; // we will use this to save our Project instance
 
+    @Autowired
+    EmployeesRepository empRepo;
+
     @RequestMapping("") // or @GetMapping
     public String showCurrentProjects(Model model) {
 
@@ -32,7 +37,17 @@ public class ProjectController {
     public String displayProjectForm(Model model) {
 
         Project aProject = new Project(); // Bind an empty Object to the form
-        model.addAttribute("project", aProject); // in the html form the Object name is "project"
+        List<Employee> employees = empRepo.findAll();
+
+        // in the html form the Object name is "project"
+        model.addAttribute("project", aProject);
+
+        /*
+         Sending to 'new-project.html' the 'employees' from two lines above
+         So 'employees' will be mapped to the 'allEmployees' variable
+        */
+        model.addAttribute("allEmployees", employees);
+
         return "projects/new-project";
     }
 

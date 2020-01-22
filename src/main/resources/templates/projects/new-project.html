@@ -26,6 +26,16 @@
             <br><br>
         <textarea class="form-control" type="text" placeholder="Enter Project Description" th:field="${project.description}"></textarea>
             <br>
+<!--            A project has an employees field that is used here-->
+<!--            The '*' before '{employees}' means it is a property inside the parent Object-->
+<!--            We can use ${project.employees} as well (instead) -->
+        <select th:field="*{employees}" multiple="multiple">
+            <option th:each = "employee : ${allEmployees}"
+                    th:value="${employee.employeeId}"
+                    th:text = "${employee.firstName}">
+            </option>
+        </select>
+            <br><br>
         <button class="btn btn-primary" type="submit">Create Project</button>
         </form>
     </div>
