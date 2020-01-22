@@ -13,9 +13,14 @@ public class Employee {
     private String lastName;
     private String email;
 
-    // Most of the option without 'Delete',
-    // we do not want to delete Employee after a Project delete
-    // PERSIST - will save to the db a child, after a parent was saved
+    /*
+     Cascade definition for the childes side, the Employees
+     Most of the option included without 'Delete',
+     we do not want to delete Employee after a Project delete
+     PERSIST - will save to the db all the associated childes (employees), after a parent was saved to the db
+     Merge - if project a merges with project b, the associated childes will be merged too
+     Refresh - if the project refresh, the associated childes will refresh
+    */
     @ManyToOne( cascade =
                 { CascadeType.DETACH,
                   CascadeType.MERGE,
