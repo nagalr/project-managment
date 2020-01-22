@@ -15,7 +15,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "project_id") // The 'Many' side of the relationship assign the Join Column
-    private Project theProject;
+    private Project Project;
 
     public Employee(){
 
@@ -25,6 +25,14 @@ public class Employee {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public com.ex.pma.entities.Project getProject() {
+        return Project;
+    }
+
+    public void setProject(com.ex.pma.entities.Project project) {
+        Project = project;
     }
 
     public long getEmployeeId() {
