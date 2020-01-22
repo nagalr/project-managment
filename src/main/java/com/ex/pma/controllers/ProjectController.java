@@ -64,7 +64,7 @@ public class ProjectController {
         Iterable<Employee> chosenEmployees = empRepo.findAllById(employees);
 
         // iterating over the Iterable that includes multiple Id's
-        // for each employee we will use the setter method
+        // for each employee we will use the setter method to associate a Project
         for (Employee emp : chosenEmployees) {
             emp.setProject(project);
             empRepo.save(emp); // empRepo used to read/write to the db
