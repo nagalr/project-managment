@@ -13,7 +13,7 @@ public class Employee {
     private String lastName;
     private String email;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE) // if the parent (project) delete, the childes (employees) will delete as well
     @JoinColumn(name = "project_id") // The 'Many' side of the relationship assign the Join Column
     private Project Project;
 
