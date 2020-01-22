@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -52,9 +53,22 @@ public class ProjectController {
     }
 
     @PostMapping("/save")
-    public String createProject(Project project, Model model) {
+    public String createProject(Project project,
+                                @RequestParam List<Long> employees,
+                                Model model) {
+
         // This method should handle saving to the database
         proRepo.save(project);
+
+        // Changes to the Employee
+        Iterable<Employee> chosenEmployees = empRepo.findAllById(employees);
+
+        // iterating over the Iterable that includes multiple Id's
+        // for each employee we will use the setter method
+        for (Employee emp : chosenEmployees) {
+            emp.setProject(project);
+            empRepo.save(emp); // empRepo used to read/write to the db
+        }
 
         return "redirect:/projects/new";  // Redirecting to prevent duplicate submissions (we can redirect to any page)
     }
