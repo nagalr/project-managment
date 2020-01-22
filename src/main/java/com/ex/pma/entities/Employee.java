@@ -20,7 +20,8 @@ public class Employee {
                {CascadeType.DETACH,
                 CascadeType.MERGE,
                 CascadeType.REFRESH,
-                CascadeType.PERSIST})
+                CascadeType.PERSIST},
+                fetch = FetchType.LAZY) // Load a project to the memory, but not all the associated childes
     @JoinColumn(name = "project_id") // The 'Many' side of the relationship assign the Join Column
     private Project Project;
 
