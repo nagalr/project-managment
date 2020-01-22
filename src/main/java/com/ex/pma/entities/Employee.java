@@ -1,6 +1,7 @@
 package com.ex.pma.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -21,14 +22,17 @@ public class Employee {
      Merge - if project a merges with project b, the associated childes will be merged too
      Refresh - if the project refresh, the associated childes will refresh
     */
-    @ManyToOne( cascade =
+    @ManyToMany( cascade =
                 { CascadeType.DETACH,
                   CascadeType.MERGE,
                   CascadeType.REFRESH,
                   CascadeType.PERSIST },
                 fetch = FetchType.LAZY ) // Load a project to the memory, but not all the associated childes
-    @JoinColumn(name = "project_id") // The 'Many' side of the relationship assign the Join Column
-    private Project Project;
+    @JoinTable(name = "project_employee",
+               joinColumns = @JoinColumn(name = "employee_id"),
+               inverseJoinColumns = @JoinColumn(name = "project_id")
+               ) // Annotation to create a join table
+    private List<Project> projects;
 
     public Employee(){
 
@@ -40,12 +44,12 @@ public class Employee {
         this.email = email;
     }
 
-    public com.ex.pma.entities.Project getProject() {
-        return Project;
+    public List<Project> getProjects() {
+        return projects;
     }
 
-    public void setProject(com.ex.pma.entities.Project project) {
-        Project = project;
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 
     public long getEmployeeId() {
