@@ -1,9 +1,7 @@
 package com.ex.pma.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 // Defines that this is an entity, an Object from this class will convert to a record in a database
 // Each row in the database will have all the private fields of the Object
@@ -18,6 +16,9 @@ public class Project {
     private String name;
     private String stage; // NOTSTARTED COMPLETED INPROGRESS
     private String description;
+
+    @OneToMany
+    private List<Employee> employees;
 
     public Project(){
 
