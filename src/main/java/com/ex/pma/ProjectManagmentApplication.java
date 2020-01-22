@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 public class ProjectManagmentApplication {
 
@@ -24,6 +26,7 @@ public class ProjectManagmentApplication {
         SpringApplication.run(ProjectManagmentApplication.class, args);
     }
 
+    // manually add records to the db after application restart
     @Bean
     CommandLineRunner runner() {
         return args -> {
@@ -50,6 +53,36 @@ public class ProjectManagmentApplication {
                     + "security needs to be improved and proper security team needs to be hired for "
                     + "implementation");
 
+            // need to set both sides of the relationship manually
+            pro1.addEmployee(emp1);
+            pro1.addEmployee(emp2);
+            pro2.addEmployee(emp3);
+            pro3.addEmployee(emp1);
+            pro4.addEmployee(emp1);
+            pro4.addEmployee(emp3);
+
+            // need to set both sides of the relationship manually
+            emp1.setProjects(Arrays.asList(pro1, pro3, pro4));
+            emp2.setProjects(Arrays.asList(pro1));
+            emp3.setProjects(Arrays.asList(pro2, pro4));
+
+            // save employees in database
+            empRepo.save(emp1);
+            empRepo.save(emp2);
+            empRepo.save(emp3);
+            empRepo.save(emp4);
+            empRepo.save(emp5);
+            empRepo.save(emp6);
+            empRepo.save(emp7);
+            empRepo.save(emp8);
+            empRepo.save(emp9);
+
+
+            // save projects in database
+            projRepo.save(pro1);
+            projRepo.save(pro2);
+            projRepo.save(pro3);
+            projRepo.save(pro4);
         };
     }
 }
