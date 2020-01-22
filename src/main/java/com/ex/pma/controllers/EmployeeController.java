@@ -19,7 +19,7 @@ public class EmployeeController {
     @Autowired
     EmployeesRepository empRepo;
 
-    @RequestMapping("")
+    @RequestMapping("") // or @GetMapping
     public String showCurrentEmployees(Model model) {
         // Querying the database for Projects and Employees
         List<Employee> employees = empRepo.findAll(); // return all the projects in the db

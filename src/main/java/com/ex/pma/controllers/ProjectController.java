@@ -18,7 +18,7 @@ public class ProjectController {
     @Autowired // Spring will create an Instance from this interface
     ProjectRepository proRepo; // we will use this to save our Project instance
 
-    @RequestMapping("")
+    @RequestMapping("") // or @GetMapping
     public String showCurrentProjects(Model model) {
 
         // Querying the database for Projects and Employees
