@@ -11,7 +11,7 @@ import java.util.List;
 public class Project {
 
     @Id // Mention what is the generated value
-    @GeneratedValue(strategy = GenerationType.AUTO) // Generate projectId value in the database
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Generate projectId value in the database
     private long projectId;
 
     private String name;
