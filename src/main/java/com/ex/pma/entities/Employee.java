@@ -13,7 +13,14 @@ public class Employee {
     private String lastName;
     private String email;
 
-    @ManyToOne(cascade = CascadeType.REMOVE) // if the parent (project) delete, the childes (employees) will delete as well
+    // Most of the option without 'Delete',
+    // we do not want to delete Employee after a Project delete
+    // PERSIST - will save to the db a child, after a parent was saved
+    @ManyToOne(cascade =
+               {CascadeType.DETACH,
+                CascadeType.MERGE,
+                CascadeType.REFRESH,
+                CascadeType.PERSIST})
     @JoinColumn(name = "project_id") // The 'Many' side of the relationship assign the Join Column
     private Project Project;
 
