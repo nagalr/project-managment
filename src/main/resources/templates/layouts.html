@@ -40,43 +40,61 @@
 </nav>
 
 <!--The Current Projects component-->
-<div th:fragment="CurrentProjects">
+<div th:fragment="CurrentProjects" class="container">
+    <h3>Main Dashboard</h3>
+    <hr>
     <h4>Current Projects</h4>
-    <table >
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Stage</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="aProject : ${projectsList}">
-            <td th:text="${aProject.name}" />
-            <td th:text="${aProject.stage}" />
-        </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Stage</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aProject : ${projectsList}">
+                    <td th:text="${aProject.name}" />
+                    <td th:text="${aProject.stage}" />
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <canvas id="myPieChart" height="50" width="50"></canvas>
+        </div>
+
+    </div>
+
 </div>
 
+
+
 <!--The Current Employees component-->
-<div th:fragment="CurrentEmployees">
+<div th:fragment="CurrentEmployees" class="container">
     <h4>Current Employees</h4>
-    <table>
-        <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="aEmployee : ${EmployeesList}">
-            <td th:text="${aEmployee.firstName}" />
-            <td th:text="${aEmployee.lastName}" />
-            <td th:text="${aEmployee.email}" />
-        </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aEmployee : ${EmployeesList}">
+                    <td th:text="${aEmployee.firstName}" />
+                    <td th:text="${aEmployee.lastName}" />
+                    <td th:text="${aEmployee.email}" />
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 </html>
