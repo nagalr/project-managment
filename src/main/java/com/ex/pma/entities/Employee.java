@@ -1,9 +1,6 @@
 package com.ex.pma.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Employee {
@@ -15,6 +12,10 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "project_id") // The 'Many' side of the relationship assign the Join Column
+    private Project theProject;
 
     public Employee(){
 

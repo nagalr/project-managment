@@ -17,7 +17,7 @@ public class Project {
     private String stage; // NOTSTARTED COMPLETED INPROGRESS
     private String description;
 
-    @OneToMany
+    @OneToMany(mappedBy = "theProject")
     private List<Employee> employees;
 
     public Project(){
